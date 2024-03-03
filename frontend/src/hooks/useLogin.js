@@ -19,7 +19,7 @@ const useLogin = () => {
             "Access-Control-Allow-Headers":
               "Origin, X-Requested-With, Content-Type, Accept",
             "Access-Control-Allow-Credentials": "true",
-            
+
           },
           body: JSON.stringify({ username, password }),
         }
