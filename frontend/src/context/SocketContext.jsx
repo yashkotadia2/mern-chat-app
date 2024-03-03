@@ -20,6 +20,9 @@ export const SocketContextProvider = ({ children }) => {
 					userId: authUser._id,
 				},
 				transports: ["websocket", "polling", "flashsocket"],
+				extraHeaders: {
+					"Access-Control-Allow-Origin": "*",
+				}
 			});
 
 			setSocket(socket);

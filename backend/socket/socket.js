@@ -10,7 +10,8 @@ const io = new Server(server, {
     origin: ["https://simple-chat-mern.netlify.app/"],
     methods: ["GET", "POST"],
     credentials: true,
-    transports: ["websocket", "polling", "flashsocket"],
+    transports: ["websocket", "polling", "flashsocket", "xhr-polling", "jsonp-polling"],
+    allowedHeaders:["Access-Control-Allow-Origin"]
   },
 });
 
