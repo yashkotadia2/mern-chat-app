@@ -1,0 +1,13 @@
+.messages-container{
+    height:82%;
+    padding-inline: 1rem;
+    border-radius: 0.5rem;
+    overflow: scroll;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.messages-container::-webkit-scrollbar {
+    display: none;
+}

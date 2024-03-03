@@ -1,0 +1,21 @@
+// @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap')
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Albert Sans", sans-serif;
+}
+
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+.ant-form-item {
+  margin-bottom: 15px !important;
+}

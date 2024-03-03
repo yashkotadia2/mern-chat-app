@@ -1,0 +1,90 @@
+@import "../../assets/css/variables";
+
+.message-container {
+  width: 100%;
+  margin-block: 0.2rem;
+
+  .message-wrapper {
+    display: flex;
+    width: fit-content;
+
+    .chat-bubble {
+      p {
+        font-size: 0.9rem;
+      }
+      --r: 25px; /* the radius */
+      --t: 30px; /* the size of the tail */
+
+      max-width: 300px;
+      padding: calc(2 * var(--r) / 3);
+      -webkit-mask: radial-gradient(
+            var(--t) at var(--_d) 0,
+            #0000 98%,
+            #000 102%
+          )
+          var(--_d) 100% / calc(100% - var(--r)) var(--t) no-repeat,
+        conic-gradient(at var(--r) var(--r), #000 75%, #0000 0)
+          calc(var(--r) / -2) calc(var(--r) / -2) padding-box,
+        radial-gradient(50% 50%, #000 98%, #0000 101%) 0 0 / var(--r) var(--r)
+          space padding-box;
+      //   background-color: $primary;
+      color: #fff;
+    }
+
+    .chat-info {
+      margin-top: auto;
+      .chat-user-pic {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+
+        margin-bottom: 0.3rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .chat-time {
+        font-size: 0.7rem;
+        color: gray;
+      }
+    }
+  }
+
+  .you {
+    margin-left: auto;
+
+    .chat-bubble {
+      --_d: 100%;
+      border-right: var(--t) solid #0000;
+      margin-left: var(--t);
+      place-self: end;
+      background-color: $primary;
+    }
+
+    .chat-info {
+      margin-left: auto;
+    }
+  }
+
+  .other {
+    margin-right: auto;
+    flex-direction: row-reverse;
+
+    .chat-bubble {
+      --_d: 0%;
+      border-left: var(--t) solid #0000;
+      margin-right: var(--t);
+      place-self: start;
+      background-color: gray;
+    }
+
+    .chat-info {
+      margin-right: auto;
+    }
+  }
+}
