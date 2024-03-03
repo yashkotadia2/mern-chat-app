@@ -9,9 +9,21 @@ const io = new Server(server, {
   cors: {
     origin: ["https://simple-chat-mern.netlify.app/"],
     methods: ["GET", "POST"],
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers":
+        "Origin, X-Requested-With, Content-Type, Accept",
+      "Access-Control-Allow-Credentials": "true",
+    },
     credentials: true,
-    transports: ["websocket", "polling", "flashsocket", "xhr-polling", "jsonp-polling"],
-    allowedHeaders:["Access-Control-Allow-Origin"]
+    transports: [
+      "websocket",
+      "polling",
+      "flashsocket",
+      "xhr-polling",
+      "jsonp-polling",
+    ],
   },
 });
 

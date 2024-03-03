@@ -3,32 +3,38 @@ import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
 
 const useLogin = () => {
-	const [loading, setLoading] = useState(false);
-	const { setAuthUser } = useAuthContext();
+  const [loading, setLoading] = useState(false);
+  const { setAuthUser } = useAuthContext();
 
-	const login = async (username, password) => {
-		setLoading(true);
-		try {
-			const res = await fetch("https://simple-chat-q5yp.onrender.com/api/auth/login", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ username, password }),
-			});
+  const login = async (username, password) => {
+    setLoading(true);
+    try {
+      const res = await fetch(
+        "https://simple-chat-q5yp.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({ username, password }),
+        }
+      );
 
-			const data = await res.json();
-			if (data.error) {
-				throw new Error(data.error);
-			}
+      const data = await res.json();
+      if (data.error) {
+        throw new Error(data.error);
+      }
 
-			localStorage.setItem("chat-user", JSON.stringify(data));
-			setAuthUser(data);
-		} catch (error) {
-			toast.error(error.message);
-		} finally {
-			setLoading(false);
-		}
-	};
+      localStorage.setItem("chat-user", JSON.stringify(data));
+      setAuthUser(data);
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-	return { loading, login };
+  return { loading, login };
 };
 export default useLogin;
