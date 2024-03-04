@@ -22,6 +22,9 @@ export const SocketContextProvider = ({ children }) => {
 				transports: ["websocket", "polling", "flashsocket"],
 				extraHeaders: {
 					"Access-Control-Allow-Origin": "*",
+					"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+					"Access-Control-Allow-Credentials": "true",
+					"Authorization": `Bearer ${authUser.accessToken}`,
 				}
 			});
 

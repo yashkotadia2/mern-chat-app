@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 const useGetMessages = () => {
   const [loading, setLoading] = useState(false);
   const { messages, setMessages, selectedConversation } = useConversation();
+  const { authUser } = useAuthContext();
 
   useEffect(() => {
     const getMessages = async () => {
@@ -20,6 +21,7 @@ const useGetMessages = () => {
               "Access-Control-Allow-Headers":
                 "Origin, X-Requested-With, Content-Type, Accept",
               "Access-Control-Allow-Credentials": "true",
+              "Authorization": `Bearer ${authUser.accessToken}`,
             },
           }
         );

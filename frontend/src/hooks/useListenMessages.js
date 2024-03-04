@@ -12,7 +12,6 @@ const useListenMessages = () => {
   useEffect(() => {
     socket?.on("newMessage", (newMessage) => {
 		// const check = newMessage.receiverId == selectedConversation.id;
-		console.log("selectedConverjojsjsation", newMessage.receiverId, selectedConversation.id);
 
       newMessage.shouldShake = true;
       const sound = new Audio(notificationSound);

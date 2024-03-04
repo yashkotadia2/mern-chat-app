@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 const useSendMessage = () => {
   const [loading, setLoading] = useState(false);
   const { messages, setMessages, selectedConversation } = useConversation();
+  const { authUser } = useAuthContext();
 
   const sendMessage = async (message) => {
     setLoading(true);
@@ -19,6 +20,7 @@ const useSendMessage = () => {
             "Access-Control-Allow-Headers":
               "Origin, X-Requested-With, Content-Type, Accept",
             "Access-Control-Allow-Credentials": "true",
+            "Authorization": `Bearer ${authUser.accessToken}`,
           },
           body: JSON.stringify({ message }),
         }

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useAuthContext } from "../context/AuthContext";
 
 const useGetConversations = () => {
   const [loading, setLoading] = useState(false);
   const [conversations, setConversations] = useState([]);
+	const { authUser } = useAuthContext();
 
   useEffect(() => {
     const getConversations = async () => {
@@ -19,6 +21,7 @@ const useGetConversations = () => {
               "Access-Control-Allow-Headers":
                 "Origin, X-Requested-With, Content-Type, Accept",
               "Access-Control-Allow-Credentials": "true",
+              "Authorization": `Bearer ${authUser.accessToken}`,
             },
           }
         );
