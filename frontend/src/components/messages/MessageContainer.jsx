@@ -31,7 +31,7 @@ const MessageContainer = () => {
               minHeight: "2.8rem",
               paddingInline: "1rem",
               paddingBlock: "0.7rem",
-              backgroundColor: "#20948b",
+              backgroundColor: "#1995ad",
               borderRadius: "0.5rem",
               width: "100%",
               textAlign: "center",
@@ -86,7 +86,7 @@ const NoChatSelected = () => {
           flexDirection: "column",
           alignItems: "center",
           gap: "0.5rem",
-          color: "#20948b",
+          color: "#1995ad",
         }}
       >
         <p>Welcome 🙏 {authUser.fullName}!</p>

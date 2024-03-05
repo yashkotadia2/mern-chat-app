@@ -60,10 +60,14 @@
       align-items: center;
       color: $primary;
 
-        .user-online {
-            color: green;
-        }
     }
+    .user-online {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: green;
+      outline: 1px solid $secondary;
+  }
   }
 
   &:hover {
@@ -78,9 +82,3 @@
   }
 }
 
-.user-online {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: green;
-}

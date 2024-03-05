@@ -16,8 +16,8 @@ const Message = ({ message }) => {
 
   const shakeClass = message.shouldShake
     ? fromMe
-      ? "animate__animated animate__slideInRight animate__faster"
-      : "animate__animated animate__slideInLeft animate__faster"
+      ? "animate__animated animate__flipInX animate__delay-1s"
+      : "animate__animated animate__flipInX animate__delay-1s"
     : "";
 
   // const shakeClass = true

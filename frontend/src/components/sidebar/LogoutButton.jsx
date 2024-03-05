@@ -1,9 +1,18 @@
+import { useState } from "react";
 import { PiSignOutBold } from "react-icons/pi";
 import useLogout from "../../hooks/useLogout";
 import { LoadingOutlined } from "@ant-design/icons";
+import { Modal } from "antd";
 
 const LogoutButton = () => {
   const { loading, logout } = useLogout();
+  const [open, setOpen] = useState(false);
+  const showModal = () => {
+    setOpen(true);
+  };
+  const hideModal = () => {
+    setOpen(false);
+  };
 
   return (
     <div style={{ marginTop: "auto", marginBottom: "1rem" }}>
@@ -15,16 +24,26 @@ const LogoutButton = () => {
             paddingRight: "1rem",
           }}
         >
+          <Modal
+            title="Modal"
+            open={open}
+            onOk={logout}
+            onCancel={hideModal}
+            okText="Logout"
+            cancelText="Cancel"
+            width={300}
+          >
+            <p>Are you sure you want to log out?</p>
+          </Modal>
           <PiSignOutBold
             style={{
               width: "2rem",
               height: "2rem",
-              color: "#20948b",
+              color: "#1995ad",
               cursor: "pointer",
             }}
-            onClick={logout}
+            onClick={showModal}
           />{" "}
-          :
         </div>
       ) : (
         <div
@@ -38,7 +57,7 @@ const LogoutButton = () => {
             style={{
               width: "2rem",
               height: "2rem",
-              color: "#20948b",
+              color: "#1995ad",
               fontSize: "4rem",
             }}
           />{" "}

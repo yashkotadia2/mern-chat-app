@@ -23,10 +23,11 @@ const useGetMessages = () => {
               "Access-Control-Allow-Headers":
                 "Origin, X-Requested-With, Content-Type, Accept",
               "Access-Control-Allow-Credentials": "true",
-              "Authorization": `Bearer ${authUser.accessToken}`,
+              Authorization: `Bearer ${authUser.accessToken}`,
             },
           }
         );
+
         const data = await res.json();
         if (data.error) throw new Error(data.error);
         setMessages(data);

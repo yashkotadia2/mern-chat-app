@@ -16,11 +16,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             theme={{
               token: {
                 // Seed Token
-                colorPrimary: "#20948b",
+                colorPrimary: "#1995ad",
                 borderRadius: 5,
 
                 // Alias Token
-                colorBgContainer: "#FBFDFD",
+                colorBgContainer: "#fcfefe",
               },
             }}
           >

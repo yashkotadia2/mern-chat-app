@@ -7,7 +7,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["https://simple-chat-mern.netlify.app/", "http://localhost:5173"],
+    origin: ["https://simple-chat-mern.netlify.app/", "http://localhost:5173", "http://192.168.0.108:5173"],
     methods: ["GET", "POST"],
     headers: {
       "Content-Type": "application/json",
@@ -28,8 +28,6 @@ const io = new Server(server, {
 });
 
 export const getReceiverSocketId = (receiverId) => {
-  console.log("receiverId", receiverId);
-  console.log("userSocketMap", userSocketMap);
   return userSocketMap[receiverId];
 };
 

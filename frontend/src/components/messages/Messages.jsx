@@ -37,7 +37,7 @@ const Messages = () => {
         >
           <LoadingOutlined
             style={{
-              color: "#20948b",
+              color: "#1995ad",
               width: "fit-content",
               fontSize: "6rem",
             }}

@@ -41,8 +41,7 @@ const Home = () => {
         trigger={isCollapsed ? <RiMenuUnfoldFill /> : <RiMenuFoldFill />}
         width={"min(85%, 350px)"}
         style={{
-                  backgroundColor: "#F0F9F8",
-
+          backgroundColor: "#F0F9F8",
         }}
       >
         <div className="demo-logo-vertical" />

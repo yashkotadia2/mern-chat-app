@@ -24,7 +24,7 @@ const Conversations = () => {
       {loading ? (
         <LoadingOutlined
           style={{
-            color: "#20948b",
+            color: "#1995ad",
             width: "fit-content",
             fontSize: "4rem",
             margin: "auto",

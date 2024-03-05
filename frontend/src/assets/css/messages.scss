@@ -10,12 +10,13 @@
 
   background: linear-gradient(
       to right,
-      rgba(255, 255, 255, 0.3) 20%,
-      rgba(255, 255, 255, 0.3) 20%,
-      rgba(255, 255, 255, 0.3) 80%,
-      rgba(255, 255, 255, 0.3) 0
+      rgba(255, 255, 255, 0.6) 20%,
+      rgba(255, 255, 255, 0.6) 20%,
+      rgba(255, 255, 255, 0.6) 80%,
+      rgba(255, 255, 255, 0.6) 0
     ),
-    url("../images/chat-bg-image.jpg") no-repeat center center;
+    url("../images/chat-bg-img.jpg") no-repeat center center;
+    background-size: cover;
 }
 
 .messages-container::-webkit-scrollbar {
