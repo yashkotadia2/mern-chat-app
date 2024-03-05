@@ -3,6 +3,7 @@ import { PiSignOutBold } from "react-icons/pi";
 import useLogout from "../../hooks/useLogout";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Modal } from "antd";
+import { ExclamationCircleOutlined } from "@ant-design/icons";
 
 const LogoutButton = () => {
   const { loading, logout } = useLogout();
@@ -25,7 +26,7 @@ const LogoutButton = () => {
           }}
         >
           <Modal
-            title="Modal"
+            title={"Logout"}
             open={open}
             onOk={logout}
             onCancel={hideModal}
@@ -33,7 +34,7 @@ const LogoutButton = () => {
             cancelText="Cancel"
             width={300}
           >
-            <p>Are you sure you want to log out?</p>
+            <p>Are you sure you want to logout?</p>
           </Modal>
           <PiSignOutBold
             style={{
