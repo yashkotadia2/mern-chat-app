@@ -1,29 +1,25 @@
+import React, { useState, useEffect } from "react";
 import MessageContainer from "../../components/messages/MessageContainer";
 import Sidebar from "../../components/sidebar/Sidebar";
 
-import React from "react";
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
-import { Layout, Menu, theme } from "antd";
-const { Header, Content, Footer, Sider } = Layout;
-const items = [
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  UserOutlined,
-].map((icon, index) => ({
-  key: String(index + 1),
-  icon: React.createElement(icon),
-  label: `nav ${index + 1}`,
-}));
+import { Layout, theme } from "antd";
+import "../../assets/css/home.scss";
+import useConversation from "../../zustand/useConversation";
+import { RiMenuFoldFill, RiMenuUnfoldFill } from "react-icons/ri";
+const { Content, Sider } = Layout;
 
 const Home = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+  const { selectedConversation, setSelectedConversation } = useConversation();
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setIsCollapsed(true);
+    }
+  }, [selectedConversation]);
 
   return (
     <Layout
@@ -33,15 +29,21 @@ const Home = () => {
       }}
     >
       <Sider
+        collapsed={isCollapsed}
         breakpoint="md"
         collapsedWidth="0px"
         onBreakpoint={(broken) => {
-          console.log(broken);
+          console.log("onBreakpoint", broken);
         }}
         onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
+          setIsCollapsed(collapsed);
         }}
-        width={"350px"}
+        trigger={isCollapsed ? <RiMenuUnfoldFill /> : <RiMenuFoldFill />}
+        width={"min(85%, 350px)"}
+        style={{
+                  backgroundColor: "#F0F9F8",
+
+        }}
       >
         <div className="demo-logo-vertical" />
         <Sidebar />

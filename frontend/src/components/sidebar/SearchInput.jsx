@@ -10,7 +10,6 @@ const SearchInput = () => {
   const { conversations } = useGetConversations();
 
   const onSearch = (value, _e, info) => {
-    console.log("search", info?.source, value);
 
     if (!value) return;
     if (value.length < 3) {

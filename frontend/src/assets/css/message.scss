@@ -15,7 +15,7 @@
       --r: 25px; /* the radius */
       --t: 30px; /* the size of the tail */
 
-      max-width: 300px;
+      max-width: 280px;
       padding: calc(2 * var(--r) / 3);
       -webkit-mask: radial-gradient(
             var(--t) at var(--_d) 0,
@@ -49,7 +49,7 @@
       }
 
       .chat-time {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
         color: gray;
       }
     }
@@ -64,6 +64,7 @@
       margin-left: var(--t);
       place-self: end;
       background-color: $primary;
+      margin-right: -18px;
     }
 
     .chat-info {
@@ -80,7 +81,8 @@
       border-left: var(--t) solid #0000;
       margin-right: var(--t);
       place-self: start;
-      background-color: gray;
+      background-color: $other-bubble;
+      margin-left: -18px;
     }
 
     .chat-info {

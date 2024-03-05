@@ -31,10 +31,11 @@ const Message = ({ message }) => {
           <p>{message.message}</p>
         </div>
         <div className="chat-info">
+    
+          <div className="chat-time">{formattedTime}</div>
           <div className="chat-user-pic">
             <img src={profilePic} alt="user avatar" />
           </div>
-          <div className="chat-time">{formattedTime}</div>
         </div>
       </div>
     </div>
