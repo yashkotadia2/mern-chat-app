@@ -22,12 +22,14 @@ const Conversations = () => {
       ))}
 
       {loading ? (
-        <LoadingOutlined style={{
-			color: "#20948b",
-			width: "fit-content",
-			fontSize: "4rem",
-			margin: "auto",
-		}} />
+        <LoadingOutlined
+          style={{
+            color: "#20948b",
+            width: "fit-content",
+            fontSize: "4rem",
+            margin: "auto",
+          }}
+        />
       ) : null}
     </div>
   );

@@ -26,10 +26,12 @@ const Home = () => {
   } = theme.useToken();
 
   return (
-    <Layout style={{
-		width: "100vw",
-		height: "95vh",
-	}}>
+    <Layout
+      style={{
+        width: "100vw",
+        height: "100dvh",
+      }}
+    >
       <Sider
         breakpoint="md"
         collapsedWidth="0px"
@@ -52,8 +54,8 @@ const Home = () => {
         >
           <div
             style={{
-				height: "100%",
-				width: "100%",
+              height: "100%",
+              width: "100%",
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
             }}

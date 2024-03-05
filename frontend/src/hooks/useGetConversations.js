@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
+import { serverBaseURL } from "../data/serverBaseURL";
 
 const useGetConversations = () => {
   const [loading, setLoading] = useState(false);
@@ -12,7 +13,7 @@ const useGetConversations = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://simple-chat-q5yp.onrender.com/api/users",
+          `${serverBaseURL}/api/users`,
           {
             method: ["GET"],
             headers: {

@@ -7,21 +7,23 @@
   padding-inline: 1rem;
   padding-block: 0.5rem;
   border-radius: 0.5rem;
+
+  margin-block: 0.2rem;
   cursor: pointer;
 
   width: 100%;
-  min-height: 45px;
+  min-height: 40px;
   transition: all 0.3s;
   overflow-x: hidden;
 
   .avatar-container {
     width: 20%;
-    height: 48px;
+    height: 40px;
     overflow: hidden;
 
     .avatar-pic {
-      width: 45px;
-      height: 45px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       object-fit: cover;
 

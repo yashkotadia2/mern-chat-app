@@ -32,7 +32,7 @@ const Conversation = ({ conversation, lastIdx, emoji }) => {
             <p>{conversation.fullName}</p>
           </div>
           <div className="user-status">
-            {isOnline && <span className={`user-online`}/> }
+            {isOnline && <span className={`user-online`} />}
           </div>
         </div>
       </div>

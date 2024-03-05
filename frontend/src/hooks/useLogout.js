@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import { serverBaseURL } from "../data/serverBaseURL";
 
 const useLogout = () => {
   const [loading, setLoading] = useState(false);
@@ -10,7 +11,7 @@ const useLogout = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        "https://simple-chat-q5yp.onrender.com/api/auth/logout",
+        `${serverBaseURL}/api/auth/logout`,
         {
           method: "POST",
           headers: {

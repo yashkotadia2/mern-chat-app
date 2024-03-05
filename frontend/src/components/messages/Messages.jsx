@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import useGetMessages from "../../hooks/useGetMessages";
-import MessageSkeleton from "../skeletons/MessageSkeleton";
 import Message from "./Message";
 import useListenMessages from "../../hooks/useListenMessages";
 import "../../assets/css/messages.scss";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const Messages = () => {
   const { messages, loading } = useGetMessages();
@@ -26,13 +26,31 @@ const Messages = () => {
           </div>
         ))}
 
-      {loading && [...Array(3)].map((_, idx) => <MessageSkeleton key={idx} />)}
+      {loading && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+          }}
+        >
+          <LoadingOutlined
+            style={{
+              color: "#20948b",
+              width: "fit-content",
+              fontSize: "6rem",
+            }}
+          />
+        </div>
+      )}
       {!loading && messages.length === 0 && (
         <p
           style={{
             textAlign: "center",
             marginTop: "1rem",
             color: "gray",
+            fontSize: "1.1rem",
           }}
         >
           Send a message to start the conversation

@@ -6,7 +6,7 @@ const LogoutButton = () => {
   const { loading, logout } = useLogout();
 
   return (
-    <div style={{ marginTop: "auto", marginBottom: "1rem"}}>
+    <div style={{ marginTop: "auto", marginBottom: "1rem" }}>
       {!loading ? (
         <div
           style={{
@@ -18,22 +18,32 @@ const LogoutButton = () => {
           <PiSignOutBold
             style={{
               width: "2rem",
-              height: "1.5rem",
+              height: "2rem",
               color: "#20948b",
               cursor: "pointer",
             }}
             onClick={logout}
-          />
+          />{" "}
+          :
         </div>
       ) : (
-        <LoadingOutlined
+        <div
           style={{
-            color: "#20948b",
-            width: "fit-content",
-            fontSize: "4rem",
-            margin: "auto",
+            display: "flex",
+            justifyContent: "end",
+            paddingRight: "1rem",
           }}
-        />
+        >
+          <LoadingOutlined
+            style={{
+              width: "2rem",
+              height: "2rem",
+              color: "#20948b",
+              fontSize: "4rem",
+            }}
+          />{" "}
+          :
+        </div>
       )}
     </div>
   );

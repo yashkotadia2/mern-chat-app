@@ -28,7 +28,7 @@ const MessageContainer = () => {
           {/* Header */}
           <div
             style={{
-              height: "8%",
+              minHeight: "2.8rem",
               paddingInline: "1rem",
               paddingBlock: "0.7rem",
               backgroundColor: "#20948b",

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
+import { serverBaseURL } from "../data/serverBaseURL";
 
 const useSignup = () => {
   const [loading, setLoading] = useState(false);
@@ -15,7 +16,7 @@ const useSignup = () => {
   }) => {
     setLoading(true);
     try {
-      const res = await fetch("https://simple-chat-q5yp.onrender.com/api/auth/signup", {
+      const res = await fetch(`${serverBaseURL}/api/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
