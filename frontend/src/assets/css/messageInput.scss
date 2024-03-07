@@ -1,0 +1,13 @@
+.message-input-container {
+  .ant-upload-wrapper {
+    // display: flex;
+
+    .ant-upload-list {
+      display: flex;
+    }
+  }
+
+  .ant-form-item {
+    margin-bottom: 0px !important;
+  }
+}

@@ -44,6 +44,7 @@ const SearchInput = () => {
           width: "90%",
           marginInline: "1rem",
           marginTop: "1rem",
+          boxShadow: "#1995ad40 0px 5px 10px"
         }}
       />
     </>

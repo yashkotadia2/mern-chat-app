@@ -3,6 +3,7 @@ import { extractTime } from "../../utils/extractTime";
 import useConversation from "../../zustand/useConversation";
 import "animate.css";
 import "../../assets/css/message.scss";
+import { Image } from "antd";
 
 const Message = ({ message }) => {
   const { authUser } = useAuthContext();
@@ -24,14 +25,22 @@ const Message = ({ message }) => {
   //   ? "animate__animated animate__slideInRight"
   //   : "";
 
+  const isBase64 = (str) => {
+    const base64URLPattern = /^(data:)([\w/+]+);(charset=[\w-]+|base64),(.*)$/;
+    return base64URLPattern.test(str);
+  };
+
   return (
     <div className="message-container">
       <div className={`message-wrapper ${chatClassName} ${shakeClass}`}>
         <div className="chat-bubble">
-          <p>{message.message}</p>
+          {isBase64(message.message) ? (
+            <Image style={{ maxWidth: "120px"}} src={message.message} alt="chat-image" />
+          ) : (
+            <p>{message.message}</p>
+          )}
         </div>
         <div className="chat-info">
-    
           <div className="chat-time">{formattedTime}</div>
           <div className="chat-user-pic">
             <img src={profilePic} alt="user avatar" />

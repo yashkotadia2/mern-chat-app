@@ -23,9 +23,11 @@ const LogoutButton = () => {
             display: "flex",
             justifyContent: "end",
             paddingRight: "1rem",
+            paddingBlock: "0.5rem",
           }}
         >
           <Modal
+            centered
             title={"Logout"}
             open={open}
             onOk={logout}

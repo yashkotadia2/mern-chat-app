@@ -11,7 +11,6 @@ export const extractTime = (dateString) => {
 	// .toLocaleTimeString('en-US',
 	//   {timeZone:'UTC',hour12:true,hour:'numeric',minute:'numeric'}
 	// );
-	console.log("extrachsfvbfsbtTime", convertUTCToLocalFormattedTime(dateString));
 	return convertUTCToLocalFormattedTime(dateString);
 };
 
@@ -27,7 +26,6 @@ function convertUTCToLocalFormattedTime(utcTimeString) {
 	let min = localDate.split(",")[1].trim().split(" ")[0].split(":")[1];
 
 
-	console.log("convertUTCToLocalFormattedTime", `${hour}:${min} ${ampm}`);
 	
 
 
