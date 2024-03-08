@@ -24,8 +24,8 @@ const Home = () => {
   return (
     <Layout
       style={{
-        width: "98vw",
-        height: "100dvh",
+        width: "100dvw",
+        height: "99.4dvh",
       }}
     >
       <Sider
@@ -61,7 +61,7 @@ const Home = () => {
               borderRadius: borderRadiusLG,
             }}
           >
-            <MessageContainer />
+            <MessageContainer isCollapsed={isCollapsed}/>
           </div>
         </Content>
       </Layout>

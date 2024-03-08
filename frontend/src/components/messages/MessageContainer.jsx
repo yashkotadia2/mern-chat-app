@@ -5,8 +5,9 @@ import Messages from "./Messages";
 import { TbMessages } from "react-icons/tb";
 import { useAuthContext } from "../../context/AuthContext";
 
-const MessageContainer = () => {
+const MessageContainer = ({isCollapsed}) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
+  console.log("IS COLLAPSED", isCollapsed ? 1 : window.innerWidth >= 768 ? 1 : 0);
 
   useEffect(() => {
     // cleanup function (unmounts)
@@ -19,6 +20,8 @@ const MessageContainer = () => {
         display: "flex",
         flexDirection: "column",
         height: "100%",
+        opacity: isCollapsed ? 1 : window.innerWidth >= 768 ? 1 : 0,
+        transition: isCollapsed ? "opacity 1s ease-in-out": "opacity 0.3s ease-in-out",
       }}
     >
       {!selectedConversation ? (

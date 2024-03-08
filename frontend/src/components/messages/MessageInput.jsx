@@ -1,11 +1,10 @@
 import useSendMessage from "../../hooks/useSendMessage";
-import { Button, Form, Input, Modal, Upload, message } from "antd";
+import { Button, Form, Input, Modal, Upload } from "antd";
 import { useState, useEffect } from "react";
 const { TextArea } = Input;
 import { IoSend } from "react-icons/io5";
 import "../../assets/css/messageInput.scss";
-import { PlusOutlined, UploadOutlined } from "@ant-design/icons";
-import sendImage from "../../assets/icons/upload.png";
+import sendImage from "../../assets/icons/upload.svg";
 import toast from "react-hot-toast";
 
 const suffix = <></>;
@@ -173,6 +172,8 @@ const MessageInput = () => {
                     width: "fit-content",
                     height: "30px",
                     border: "none",
+                    paddingBlock: "0",
+                    paddingTop: "2px",
                   }}
                   icon={<UploadImageLogo />}
                 />
