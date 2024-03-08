@@ -6,6 +6,8 @@ import { IoSend } from "react-icons/io5";
 import "../../assets/css/messageInput.scss";
 import sendImage from "../../assets/icons/upload.svg";
 import toast from "react-hot-toast";
+import { MdOutlineEmojiEmotions } from "react-icons/md";
+import EmojiPicker from "emoji-picker-react";
 
 const suffix = <></>;
 const getBase64 = (file) =>
@@ -25,9 +27,11 @@ const MessageInput = () => {
   const [previewImage, setPreviewImage] = useState("");
   const [previewTitle, setPreviewTitle] = useState("");
   const [uploadListType, setUploadListType] = useState("picture");
+  const [emojiOpen, setEmojiOpen] = useState(false);
 
   const onSendMessage = async (value) => {
     if (!value) return;
+    setEmojiOpen(false);
     form.resetFields();
     setFileList([]);
     await sendMessage(value);
@@ -76,7 +80,7 @@ const MessageInput = () => {
 
   const beforeUpload = (file) => {
     console.log("isTypeImage", file.type.split("/")[0] == "image");
-    
+
     const isTypeImage = file.type.split("/")[0] == "image";
     if (!isTypeImage) {
       toast.error("You can only upload Image file!");
@@ -126,94 +130,128 @@ const MessageInput = () => {
   }, [uploadListType]);
 
   return (
-    <div className="message-input-container">
-      <Form
-        style={{ display: "flex" }}
-        form={form}
-        onFinish={onFinished}
-        onFinishFailed={onFinishFailed}
-      >
-        <Form.Item
-          style={{
-            width: "100%",
-            position: "relative",
+    <>
+      <div className="emojis-container">
+        <EmojiPicker
+          open={emojiOpen}
+          onEmojiClick={(e) => {
+            if (form.getFieldValue("message") === undefined) {
+              form.setFieldValue("message", e.emoji);
+            } else {
+              form.setFieldValue(
+                "message",
+                form.getFieldValue("message") + e.emoji
+              );
+            }
           }}
-          name={"message"}
-        >
-          <TextArea
-            disabled={loading || fileList.length >= 1}
-            autoSize={{ minRows: 1, maxRows: 5 }}
-            placeholder="Type a message..."
-            onPressEnter={() => {
-              form.submit();
-            }}
-          />
-        </Form.Item>
-        <Form.Item name={"file"}>
-          <div
-            style={{
-              position: "absolute",
-              right: "12px",
-              top: uploadListType === "picture-card" ? "35px" : "1px",
-            }}
-          >
-            <Upload
-              // action=""
-              fileList={fileList}
-              listType={uploadListType}
-              onChange={(info) => handleChange(info)}
-              onPreview={handlePreview}
-              maxCount={1}
-            >
-              {fileList.length >= 1 ? null : (
-                <Button
-                  disabled={loading}
-                  style={{
-                    width: "fit-content",
-                    height: "30px",
-                    border: "none",
-                    paddingBlock: "0",
-                    paddingTop: "2px",
-                  }}
-                  icon={<UploadImageLogo />}
-                />
-              )}
-            </Upload>
-            <Modal
-              open={previewOpen}
-              title={previewTitle}
-              footer={null}
-              onCancel={handleCancel}
-            >
-              <img
-                alt="example"
-                style={{
-                  width: "100%",
-                }}
-                src={previewImage}
-              />
-            </Modal>
+          theme="auto"
+          searchPlaceholder="Search emojis..."
+          suggestedEmojisMode="recent"
+          width={"100%"}
+        />
+      </div>
+      <div className="message-input-container">
+        <div className="emoji-picker">
+          <div className="emoji-icon">
+            <MdOutlineEmojiEmotions
+              size={25}
+              style={{ cursor: "pointer" }}
+              onClick={() => setEmojiOpen((prev) => !prev)}
+            />
           </div>
-        </Form.Item>
-        <Form.Item
-          style={{
-            width: "fit-content",
-          }}
+        </div>
+        <Form
+          style={{ display: "flex" }}
+          form={form}
+          onFinish={onFinished}
+          onFinishFailed={onFinishFailed}
         >
-          <Button
-            type="primary"
-            htmlType="submit"
-            loading={loading}
-            icon={<IoSend size={22} />}
-            size="medium"
+          <Form.Item
             style={{
-              paddingInline: "0.5rem",
+              width: "100%",
+              position: "relative",
+            }}
+            name={"message"}
+          >
+            <TextArea
+              disabled={loading || fileList.length >= 1}
+              autoSize={{ minRows: 1, maxRows: 5 }}
+              placeholder="Type a message..."
+              onPressEnter={() => {
+                form.submit();
+              }}
+              style={{
+                paddingLeft: "2.2rem",
+                paddingRight: "2.5rem",
+              }}
+            />
+          </Form.Item>
+          <Form.Item name={"file"}>
+            <div
+              style={{
+                position: "absolute",
+                right: "12px",
+                top: uploadListType === "picture-card" ? "35px" : "1px",
+              }}
+            >
+              <Upload
+                // action=""
+                fileList={fileList}
+                listType={uploadListType}
+                onChange={(info) => handleChange(info)}
+                onPreview={handlePreview}
+                maxCount={1}
+              >
+                {fileList.length >= 1 ? null : (
+                  <Button
+                    disabled={loading}
+                    style={{
+                      width: "fit-content",
+                      height: "30px",
+                      border: "none",
+                      paddingBlock: "0",
+                      paddingTop: "2px",
+                    }}
+                    icon={<UploadImageLogo />}
+                  />
+                )}
+              </Upload>
+              <Modal
+                open={previewOpen}
+                title={previewTitle}
+                footer={null}
+                onCancel={handleCancel}
+              >
+                <img
+                  alt="example"
+                  style={{
+                    width: "100%",
+                  }}
+                  src={previewImage}
+                />
+              </Modal>
+            </div>
+          </Form.Item>
+          <Form.Item
+            style={{
               width: "fit-content",
             }}
-          />
-        </Form.Item>
-      </Form>
-    </div>
+          >
+            <Button
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+              icon={<IoSend size={22} />}
+              size="medium"
+              style={{
+                paddingInline: "0.5rem",
+                width: "fit-content",
+              }}
+            />
+          </Form.Item>
+        </Form>
+      </div>
+    </>
   );
 };
 export default MessageInput;

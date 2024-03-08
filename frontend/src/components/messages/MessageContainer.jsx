@@ -7,7 +7,6 @@ import { useAuthContext } from "../../context/AuthContext";
 
 const MessageContainer = ({isCollapsed}) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
-  console.log("IS COLLAPSED", isCollapsed ? 1 : window.innerWidth >= 768 ? 1 : 0);
 
   useEffect(() => {
     // cleanup function (unmounts)

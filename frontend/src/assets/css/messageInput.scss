@@ -1,4 +1,15 @@
 .message-input-container {
+
+  position: relative;
+  .emoji-picker{
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    z-index: 1000;
+    svg{
+      color: #1995ad;
+    }
+  }
   .ant-upload-wrapper {
     // display: flex;
 

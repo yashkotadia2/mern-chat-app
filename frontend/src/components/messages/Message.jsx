@@ -35,7 +35,7 @@ const Message = ({ message }) => {
       <div className={`message-wrapper ${chatClassName} ${shakeClass}`}>
         <div className="chat-bubble">
           {isBase64(message.message) ? (
-            <Image style={{ maxWidth: "120px"}} src={message.message} alt="chat-image" />
+            <Image style={{ maxWidth: "120px", borderRadius: "0.5rem"}} src={message.message} alt="chat-image" />
           ) : (
             <p>{message.message}</p>
           )}
